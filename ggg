@@ -1,0 +1,30 @@
+package Stroki;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.nio.file.*;;
+public class Po_task_reg
+{
+    public static String readFileAsString(String fileName)throws Exception
+    {
+        String data = "";
+        data = new String(Files.readAllBytes(Paths.get(fileName)));
+        return data;
+    }
+
+    public static void main(String[] args) throws Exception
+    {
+        String line = readFileAsString("D:\\Саша\\Резюме\\Java1.0\\10m.txt");
+        String[] numberString = line.split( "\\r?\\n");
+        int[] numbers = new int[numberString.length];
+        int counter =0;
+        for (String number: numberString){
+            numbers[counter++] = Integer.parseInt(number);
+        }
+        System.out.println(Arrays.toString(numbers));
+        Array array=new Array();
+        System.out.println (array.maxArray(numbers));
+        System.out.println (array.minArray(numbers));
+
+    }
+}
